@@ -8,16 +8,17 @@ Funcionalidade: Login
     Contexto: Home
         Dado que esteja na home
 
+    @sprint1 @logout
     Cenario: Usuário autenticado
 
-        Quando inserir "gustavo@compasso.com.br" e "123456"
-        Então deverá aparecer a mensagem  "Olá, Gustavo"
+        Quando inserir "gustavo.tonin@compasso.com.br" e "123456"
+        Então deverá aparecer a mensagem de boas vindas "Olá, Gustavo Tonin"
 
     @tentativa
     Esquema do Cenário: Tentativa de login
 
         Quando inserir "<email>" e "<senha>"
-        Então deverá aparecer a mensagem "<mensagem>"
+        Então deverá aparecer a mensagem de alerta "<mensagem>"
 
     Exemplos: 
         | email          | senha   | mensagem                                 |
