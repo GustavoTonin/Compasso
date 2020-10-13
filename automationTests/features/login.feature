@@ -1,3 +1,5 @@
+#language: pt
+
 Funcionalidade: Login
     Sendo um usuário
     Quero acessar minha conta
@@ -8,7 +10,6 @@ Funcionalidade: Login
 
     Cenario: Usuário autenticado
 
-        Dado que esteja na home
         Quando inserir "gustavo@compasso.com.br" e "123456"
         Então deverá aparecer a mensagem  "Olá, Gustavo"
 
@@ -17,9 +18,9 @@ Funcionalidade: Login
 
         Quando inserir "<email>" e "<senha>"
         Então deverá aparecer a mensagem "<mensagem>"
-        
+
     Exemplos: 
-        | email          | senha   | alerta                                 |
+        | email          | senha   | mensagem                                 |
         | eu@papito.io   | xpto123 | Senha inválida.                        | 
         | joao&gmail.com | 123456  | Email incorreto ou ausente.            |
         |                | 123456  | Email incorreto ou ausente.            |
