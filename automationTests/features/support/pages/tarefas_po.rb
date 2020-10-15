@@ -15,8 +15,8 @@ class TarefasPage
     within('#add-task-view') do
       fill_in 'title',	with: nome
       fill_in 'dueDate',	with: data_fin
-      
-      tags.each do |key, tag|
+
+      tags.each do |_key, tag|
         find('.bootstrap-tagsinput').set tag
       end
 

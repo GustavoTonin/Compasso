@@ -5,9 +5,9 @@ Dado('que esteja na página de adicionar tarefas') do
 end
 
 Quando('já está cadastrada') do
-  @tags_hash = Hash.new
+  @tags_hash = {}
   @tags_hash[:tag] = ''
-  
+
   @tarefas_page.cadastrar(@nome, @data, @tags_hash)
   @tarefas_page.click_nova_tarefa
 end
@@ -15,7 +15,7 @@ end
 Quando('preencher o nome e data com {string} e {string}') do |nome, data|
   @nome = nome
   @data = data
-  DAO.new.remover_tarefa( @nome, @user[:email] )
+  DAO.new.remover_tarefa(@nome, @user[:email])
 end
 
 Quando('preencher as tags com:') do |tags|
@@ -29,10 +29,10 @@ end
 Quando('preencher os campos com {string}, {string} e {string}') do |nome, data, tag|
   @nome = nome
   @data = data
-  
-  @tags_hash = Hash.new
+
+  @tags_hash = {}
   @tags_hash[:tag] = tag
-  
+
   @tarefas_page.cadastrar(@nome, @data, @tags_hash)
 end
 

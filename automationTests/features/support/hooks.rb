@@ -10,7 +10,7 @@ end
 
 Before('@login') do
   @user = { email: 'gustavo.tonin@compasso.com.br', senha: '123456' }
-  
+
   @login_page.acessa
   @login_page.logar(@user[:email], @user[:senha])
 end
