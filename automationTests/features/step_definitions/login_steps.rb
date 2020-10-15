@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Dado('que esteja na home') do
   @login_page.acessa
 end
