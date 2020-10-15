@@ -1,7 +1,7 @@
 #language: pt
 
 Funcionalidade: Perfil
-    Sendo um usuário cadastrado
+    Sendo um usuário autenticado
     Quero acessar meu perfil
     Para manter meus dados atualizados
 
