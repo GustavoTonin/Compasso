@@ -1,19 +1,16 @@
 # frozen_string_literal: true
 
-class LoginPage
-  include Capybara::DSL
+class LoginPage < SitePrism::Page
+  set_url '/login'
 
-  def acessa
-    visit '/login'
-  end
+  element :login_email, '#login_email'
+  element :login_password, 'input[name=password]'
+  element :login_button, '.loginButton'
+  element :alert, '.alert-login'
 
-  def alerta
-    find('.alert-login')
-  end
-
-  def logar(email, senha)
-    find('#login_email').set email
-    find('input[name=password]').set senha
-    find('button[id*=btnLogin]').click
+  def login(email, pass)
+    login_email.set email
+    login_password.set pass
+    login_button.click
   end
 end

@@ -1,34 +1,22 @@
 # frozen_string_literal: true
 
-class TarefasPage
-  include Capybara::DSL
+class TarefasPage < SitePrism::Page
+  set_url '/tasks'
 
-  def click_nova_tarefa
-    click_button 'Nova Tarefa'
-  end
+  element :new_task_button, '#insert-button'
+  element :task_name, '#title'
+  element :task_date, '#dueDate'
+  element :task_tags, '.bootstrap-tagsinput .form-control'
+  element :register_button, '#form-submit-button'
+  element :back_button, '#form-cancel-button'
+  element :panel, '#task-board'
+  element :alert, '.panel-body'
+  elements :tasks_table_name, '#tasks a[href=#]'
 
-  def buscar_tr(_nome)
-    find('#tasks tbody tr', text: @nome)
-  end
-
-  def cadastrar(nome, data_fin, tags)
-    within('#add-task-view') do
-      fill_in 'title',	with: nome
-      fill_in 'dueDate',	with: data_fin
-
-      tags.each do |_key, tag|
-        find('.bootstrap-tagsinput').set tag
-      end
-
-      click_button 'Cadastrar'
-    end
-  end
-
-  def alerta
-    find('.alert-warn').text
-  end
-
-  def painel
-    find('#task-board')
+  def new_task(name, date, _tags)
+    task_name.set name
+    task_date.set date
+    # task_tags.set tags
+    register_button.click
   end
 end

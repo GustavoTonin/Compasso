@@ -1,14 +1,14 @@
 #language: pt
 
-Funcionalidade: Gerenciar tarefas
+Funcionalidade: Tarefas
     Sendo um usuário autenticado
     Quero gerenciar minhas tarefas
     Para melhor organização
 
     Contexto:
-        Dado que esteja na página de adicionar tarefas
+        Dado que esteja autenticado
 
-    @login @logout @sprint1
+    @logout @sprint1
     Cenário: Adicionar
 
         Quando preencher o nome e data com "Fazer compras" e "16/10/2020"
@@ -30,15 +30,16 @@ Funcionalidade: Gerenciar tarefas
             | nome          | data       | tag        | mensagem                            |
             | shortTask     | 01/01/2021 | Nome_curto | 10 caracteres é o mínimo permitido. |
             |               | 02/02/2022 | Sem_nome   | Nome é obrigatório.                 |
-            | Fazer compras | 16/10/2020 | Tarefa_Dup | Tarefa duplicada.                   |
+            # | Fazer compras | 16/10/2020 | Tarefa_Dup | Tarefa duplicada.                   |
     
     @login @logout @dup
     Cenário: Tarefa duplicada
 
         Quando preencher o nome e data com "Fazer compras" e "16/10/2020"
-        Mas já está cadastrada
         E cadastrar a tarefa
+        Mas já está cadastrada
         Então deverá aparecer a mensagem "Tarefa duplicada."
+        #E deverá ter somente 1 tarefa com o nome cadastrado
 
 #    Cenário: Editar
 #        Dado que esteja no painel de tarefas
