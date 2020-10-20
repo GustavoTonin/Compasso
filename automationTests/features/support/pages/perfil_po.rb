@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
-class PerfilPage
-  include Capybara::DSL
+class PerfilPage < SitePrism::Page
+  element :company_name, '#profile-company'
+  element :save_button, '#form-submit-button'
+  element :alert, '.panel-body'
+  element :job_list, 'select[name$=job]'
 
-  def completa_cadastro(empresa, cargo)
-    find('#profile-company').set empresa
-    combo = find('select[name$=job]')
-    combo.find('option', text: cargo).select_option
-    click_button 'Salvar'
-  end
-
-  def alerta
-    find('.panel-body')
+  def update(company, job)
+    company_name.set company
+    job_list.select job
+    save_button.click
   end
 end
