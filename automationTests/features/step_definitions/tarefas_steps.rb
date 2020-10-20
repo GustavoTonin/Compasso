@@ -12,6 +12,7 @@ Quando('já está cadastrada') do
 end
 
 Quando('preencher o nome e data com {string} e {string}') do |name, date|
+  @tarefas_page.new_task_button.click
   @tags_hash = {}
   @tags_hash[:tag] = ''
   @name = name
@@ -24,11 +25,11 @@ Quando('preencher as tags com:') do |tags|
 end
 
 Quando('cadastrar a tarefa') do
-  @tarefas_page.new_task_button.click
   @tarefas_page.new_task(@name, @date, @tags_hash)
 end
 
 Quando('preencher os campos com {string}, {string} e {string}') do |name, date, tag|
+  @tarefas_page.new_task_button.click
   @name = name
   @date = date
 
