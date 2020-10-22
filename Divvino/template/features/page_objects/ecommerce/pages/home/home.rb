@@ -7,7 +7,6 @@ module Ecommerce
         set_url '/'
 
         section :main_header, Ecommerce::Sections::Headers::MainHeader, 'map'
-
       end
     end
   end

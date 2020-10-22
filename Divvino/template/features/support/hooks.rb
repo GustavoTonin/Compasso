@@ -13,7 +13,7 @@ $LOAD_PATH << page_helpers_root
 $LOAD_PATH << page_objects_root
 
 require 'support/page_helpers/js_usable_injector.rb'
-require 'report_builder'
+# require 'report_builder'
 
 def timestamp
   date = Time.now.strftime('%Y%m%d').to_s
@@ -103,7 +103,7 @@ def clear_screenshots
 end
 
 if ISPARALLELRUNNING
-
+  require 'parallel_tests'
   # preparation:
   # affected by race-condition: first process may boot slower than the second
   # either sleep a bit or use a lock for example File.lock
