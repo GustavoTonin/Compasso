@@ -1,11 +1,11 @@
-require_relative "../../sections/login_form.rb"
+require_relative "../../sections/autenticacao/login_form.rb"
 
 module Ecommerce
   module Pages
     module Autenticacao
       class Login < SitePrism::Page
-        section :login_form, Ecommerce::Sections::Login_form, "#formLogin"
-        element :login_error, "#errorLogin"
+        section :login_form, Ecommerce::Sections::Autenticacao::LoginForm, "#formLogin"
+        element :message_error, "#errorLogin"
       end
     end
   end

@@ -3,30 +3,29 @@ Quando("buscar por {string}") do |str|
 end
 
 Quando("adicionar o produto no carrinho") do
-  @products.products.first.select_prod
-  @products.product.first.add_cart
+  @products = $ec_pages.products
+  @product_box = @products.product_box
 
-  @@link = @products.current_url
-  price = @products.product.first.price
-  price2 = price.split("R$")
-  @@price = price2.last
+  @price_product_box = @product_box.get_price
+  @qtt_product_box = @product_box.get_num_prods
+  @link_product_box = @product_box.get_link
 
-  sleep 5
+  @products.product_box.add_cart
 end
 
-Então("deverá mostrar {int} produto no carrinho") do |num|
-  @@num_prod = @main_header.num_prod
-  expect(@@num_prod).to have_content num
+Então("deverá mostrar o produto no carrinho") do
+  @main_header.open_cart
+
+  @cart_box = @home.cart_section
+  link_prod_cart = @cart_box.get_link
+
+  expect(link_prod_cart).to eql @link_product_box
 end
 
-Então("deverá validar o preço do produto") do
-  @main_header.cart_button.gclick
-  total = @cart.cart_details.total
-  expect(total).to have_content @@price
-end
+Então("deverá validar o preço e a quantidade do produto") do
+  price_prod_cart = @cart_box.get_price
+  qtt_prod_cart = @cart_box.get_qtt_prods
 
-Então("deverá validar o link do produto") do
-  @cart.cart_details.go_prod
-  link = @products.current_url
-  expect(@@link).to eql link
+  expect(price_prod_cart).to eql @price_product_box
+  expect(qtt_prod_cart).to eql @qtt_product_box
 end

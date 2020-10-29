@@ -36,15 +36,3 @@ module Ecommerce
     end
   end
 end
-
-module Ecommerce
-  module Pages
-    class ECPages
-      class << self
-        def cart
-          Ecommerce::Pages::Cart::Cart.new
-        end
-      end
-    end
-  end
-end

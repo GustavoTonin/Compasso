@@ -5,10 +5,8 @@ module Ecommerce
         element :search_input, "#search_box_desktop"
         element :search_button, ".div_lupa"
         element :sign_in, "#loginAutoUser"
-        element :cart_button, ".icon-cx_vinho"
-        element :cart_num, "#cartNumProducts"
-        element :num_prod_cart, "#cartNumProducts"
-        elements :top_menu, ".top_menu_ul"
+        element :cart_btn, ".icon-cx_vinho"
+        elements :top_menu, ".top_menu_ul li"
 
         def message
           top_menu.first.text
@@ -21,6 +19,10 @@ module Ecommerce
 
         def num_prod
           num_prod_cart.text
+        end
+
+        def open_cart
+          cart_btn.hover
         end
       end
     end
