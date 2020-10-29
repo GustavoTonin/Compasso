@@ -3,31 +3,25 @@ Quando("buscar por {string}") do |item|
 end
 
 Quando("adicionar o produto no carrinho") do
-  @@price_item = @products.products_list.value
+  @products = $ec_pages.products
 
-  @products.products_list.select_first
+  @price_prod = @products.product_box.get_price
+  @link_prod = @products.product_box.get_link
 
-  link = @products.current_url
-  link2 = link.split("/-/")
-
-  @@link_prod = link2[0]
-
-  @products.product_details.select_size
-  @products.product_details.buy_button.gclick
-end
-
-Então("deverá mostrar {int} produto no carrinho") do |num_prod|
-  num = @cart.cart_items.quantity_products
-  expect(num).to have_content num_prod
+  @products.product_box.go_prod
+  @products.product_page.select_size
+  @products.product_page.add_cart
 end
 
 Então("deverá validar o preço do produto") do
-  price = @cart.cart_items.item_price
-  expect(@@price_item).to have_content price
-end
+  @cart = $ec_pages.cart
+  @cart.buy_more_btn.gclick
 
-Então("deverá validar o link do produto") do
-  @cart.cart_items.click_prod
+  @main_header.open_cart_box
 
-  expect(@products.current_url).to have_content @@link_prod
+  @cart_box = @main_header.cart_box
+
+  price = @cart_box.get_price
+
+  expect(@price_prod).to eql price
 end

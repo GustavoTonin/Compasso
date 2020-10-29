@@ -1,28 +1,25 @@
+require_relative "../../sections/cart/cart_box.rb"
+
 module Ecommerce
   module Sections
     module Headers
       class MainHeader < SitePrism::Section
+        section :cart_box, Ecommerce::Sections::Cart::CartBox, ".cart"
+
+        element :cart_btn, ".cart"
+        element :price_prod_cart, ".price"
         element :login_button, ".js-login-action"
-        element :user_message, ".user_nav"
         element :search_input, "#searchField"
-        element :search_button, ".button_search"
-        element :num_cart, ".itemCountCart .num"
-        element :search_form, ".rrAutosugestResult"
         elements :results, "li.rr-autosugest-term"
 
         def search_item(search)
           search_input.set search
-          # wait_for_search_form
-          sleep 3
+          results(wait: 30)
           results.first.click
         end
 
-        def click_login
-          login_button.gclick
-        end
-
-        def num_products_cart
-          num_cart.text
+        def open_cart_box
+          cart_btn.hover
         end
       end
     end

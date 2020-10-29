@@ -1,11 +1,10 @@
-require_relative "../../sections/products.rb"
+require_relative "../../sections/produtos/product_box.rb"
 
 module Ecommerce
   module Pages
     module Produtos
       class Products < SitePrism::Page
-        sections :products, Ecommerce::Sections::Products, ".product_grid"
-        sections :product, Ecommerce::Sections::Products, ".product_detail_container"
+        section :product_box, Ecommerce::Sections::Produtos::ProductBox, ".js-box-product", match: :first
       end
     end
   end
