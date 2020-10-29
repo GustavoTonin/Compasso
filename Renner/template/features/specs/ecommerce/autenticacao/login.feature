@@ -10,8 +10,8 @@ Funcionalidade: Autenticação
 
     Cenário: Login
     
-    Quando efetuar o login com "gustavoteotonin2013@hotmail.com" e "guto211200"
-    Então deverá aparecer a mensagem de sucesso "Olá, Gustavo"
+    Quando efetuar o login com "test@automation.com.br" e "123456"
+    Então deverá aparecer a mensagem de sucesso "Olá, Automation"
 
     Esquema do Cenário: Tentativa de login
 
