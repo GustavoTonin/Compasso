@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Solargraph::TypeChecker - solargraph-0.39.17 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="TypeChecker/Checks.html">Solargraph::TypeChecker::Checks</a>
+  
+  
+  
+    <li><span class="include">Parser::NodeMethods</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-load">::load</a>
+    
+    <li ><a href="#method-c-load_string">::load_string</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-abstract-3F">#abstract?</a>
+    
+    <li ><a href="#method-i-all_variables">#all_variables</a>
+    
+    <li ><a href="#method-i-argument_problems_for">#argument_problems_for</a>
+    
+    <li ><a href="#method-i-arity_problems_for">#arity_problems_for</a>
+    
+    <li ><a href="#method-i-call_problems">#call_problems</a>
+    
+    <li ><a href="#method-i-const_problems">#const_problems</a>
+    
+    <li ><a href="#method-i-declared_externally-3F">#declared_externally?</a>
+    
+    <li ><a href="#method-i-external-3F">#external?</a>
+    
+    <li ><a href="#method-i-fake_args_for">#fake_args_for</a>
+    
+    <li ><a href="#method-i-first_param_hash">#first_param_hash</a>
+    
+    <li ><a href="#method-i-ignored_pins">#ignored_pins</a>
+    
+    <li ><a href="#method-i-internal-3F">#internal?</a>
+    
+    <li ><a href="#method-i-kwarg_problems_for">#kwarg_problems_for</a>
+    
+    <li ><a href="#method-i-kwrestarg_problems_for">#kwrestarg_problems_for</a>
+    
+    <li ><a href="#method-i-macro_pin-3F">#macro_pin?</a>
+    
+    <li ><a href="#method-i-method_param_type_problems_for">#method_param_type_problems_for</a>
+    
+    <li ><a href="#method-i-method_return_type_problems_for">#method_return_type_problems_for</a>
+    
+    <li ><a href="#method-i-method_tag_problems">#method_tag_problems</a>
+    
+    <li ><a href="#method-i-optional_param_count">#optional_param_count</a>
+    
+    <li ><a href="#method-i-param_hash">#param_hash</a>
+    
+    <li ><a href="#method-i-problems">#problems</a>
+    
+    <li ><a href="#method-i-required_param_count">#required_param_count</a>
+    
+    <li ><a href="#method-i-source_map">#source_map</a>
+    
+    <li ><a href="#method-i-variable_type_tag_problems">#variable_type_tag_problems</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Solargraph::TypeChecker">
+  <h1 id="class-Solargraph::TypeChecker" class="class">
+    class Solargraph::TypeChecker
+  </h1>
+
+  <section class="description">
+    
+<p>A static analysis tool for validating data types.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-api_map" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">api_map</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [ApiMap]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-filename" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">filename</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [String]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-rules" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">rules</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Rules]</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">(filename, level = :normal)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param filename [String] @return [self]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load</span> <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">level</span> = <span class="ruby-value">:normal</span>
+  <span class="ruby-identifier">source</span> = <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">api_map</span> = <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">ApiMap</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">api_map</span>.<span class="ruby-identifier">map</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-value">api_map:</span> <span class="ruby-identifier">api_map</span>, <span class="ruby-value">level:</span> <span class="ruby-identifier">level</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-load_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_string</span><span
+            class="method-args">(code, filename = nil, level = :normal)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param code [String] @param filename [String, nil] @return [self]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_string-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load_string</span> <span class="ruby-identifier">code</span>, <span class="ruby-identifier">filename</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">level</span> = <span class="ruby-value">:normal</span>
+  <span class="ruby-identifier">source</span> = <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span>.<span class="ruby-identifier">load_string</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">api_map</span> = <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">ApiMap</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">api_map</span>.<span class="ruby-identifier">map</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-value">api_map:</span> <span class="ruby-identifier">api_map</span>, <span class="ruby-value">level:</span> <span class="ruby-identifier">level</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(filename, api_map: nil, level: :normal)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param filename [String] @param <a href="TypeChecker.html#attribute-i-api_map"><code>api_map</code></a> [ApiMap] @param level [Symbol]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">filename</span>, <span class="ruby-value">api_map:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">level:</span> <span class="ruby-value">:normal</span>
+  <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">filename</span>
+  <span class="ruby-comment"># @todo Smarter directory resolution</span>
+  <span class="ruby-ivar">@api_map</span> = <span class="ruby-identifier">api_map</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">ApiMap</span>.<span class="ruby-identifier">load</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">filename</span>))
+  <span class="ruby-ivar">@rules</span> = <span class="ruby-constant">Rules</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">level</span>)
+  <span class="ruby-ivar">@marked_ranges</span> = []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-problems" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">problems</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Array&lt;Problem&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="problems-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">problems</span>
+  <span class="ruby-ivar">@problems</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">method_tag_problems</span>
+      .<span class="ruby-identifier">concat</span> <span class="ruby-identifier">variable_type_tag_problems</span>
+      .<span class="ruby-identifier">concat</span> <span class="ruby-identifier">const_problems</span>
+      .<span class="ruby-identifier">concat</span> <span class="ruby-identifier">call_problems</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-source_map" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source_map</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [SourceMap]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="source_map-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">source_map</span>
+  <span class="ruby-ivar">@source_map</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">api_map</span>.<span class="ruby-identifier">source_map</span>(<span class="ruby-identifier">filename</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-abstract-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">abstract?</span><span
+            class="method-args">(pin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="abstract-3F-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 472</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">abstract?</span> <span class="ruby-identifier">pin</span>
+  <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">docstring</span>.<span class="ruby-identifier">has_tag?</span>(<span class="ruby-value">:abstract</span>) <span class="ruby-operator">||</span>
+    (<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">closure</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">closure</span>.<span class="ruby-identifier">docstring</span>.<span class="ruby-identifier">has_tag?</span>(<span class="ruby-value">:abstract</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-all_variables" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_variables</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Array&lt;Pin::BaseVariable&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="all_variables-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">all_variables</span>
+  <span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">pins_by_class</span>(<span class="ruby-constant">Pin</span><span class="ruby-operator">::</span><span class="ruby-constant">BaseVariable</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">locals</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pin</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Pin</span><span class="ruby-operator">::</span><span class="ruby-constant">LocalVariable</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-argument_problems_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">argument_problems_for</span><span
+            class="method-args">(chain, api_map, block_pin, locals, location)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="argument_problems_for-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">argument_problems_for</span> <span class="ruby-identifier">chain</span>, <span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>, <span class="ruby-identifier">location</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">base</span> = <span class="ruby-identifier">chain</span>
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">links</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">undefined?</span>
+    <span class="ruby-identifier">pins</span> = <span class="ruby-identifier">base</span>.<span class="ruby-identifier">define</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">pins</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Pin</span><span class="ruby-operator">::</span><span class="ruby-constant">BaseMethod</span>)
+      <span class="ruby-comment"># @type [Pin::BaseMethod]</span>
+      <span class="ruby-identifier">pin</span> = <span class="ruby-identifier">pins</span>.<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">ap</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">links</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Chain</span><span class="ruby-operator">::</span><span class="ruby-constant">ZSuper</span>)
+        <span class="ruby-identifier">arity_problems_for</span>(<span class="ruby-identifier">pin</span>, <span class="ruby-identifier">fake_args_for</span>(<span class="ruby-identifier">block_pin</span>), <span class="ruby-identifier">location</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">arity_problems_for</span>(<span class="ruby-identifier">pin</span>, <span class="ruby-identifier">base</span>.<span class="ruby-identifier">links</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">arguments</span>, <span class="ruby-identifier">location</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ap</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">ap</span>
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">validate_calls?</span>
+      <span class="ruby-identifier">params</span> = <span class="ruby-identifier">first_param_hash</span>(<span class="ruby-identifier">pins</span>)
+      <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">par</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">argchain</span> = <span class="ruby-identifier">base</span>.<span class="ruby-identifier">links</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">arguments</span>[<span class="ruby-identifier">idx</span>]
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">argchain</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">par</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:arg</span>
+          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Not enough arguments to #{pin.path}&quot;</span>)
+          <span class="ruby-keyword">break</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">argchain</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">par</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:arg</span>
+            <span class="ruby-identifier">result</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">kwarg_problems_for</span> <span class="ruby-identifier">argchain</span>, <span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>, <span class="ruby-identifier">location</span>, <span class="ruby-identifier">pin</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">idx</span>
+            <span class="ruby-keyword">break</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">ptype</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">par</span>.<span class="ruby-identifier">name</span>]
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">ptype</span>.<span class="ruby-identifier">nil?</span>
+              <span class="ruby-comment"># @todo Some level (strong, I guess) should require the param here</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">argtype</span> = <span class="ruby-identifier">argchain</span>.<span class="ruby-identifier">infer</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>)
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">argtype</span>.<span class="ruby-identifier">defined?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ptype</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">any_types_match?</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">ptype</span>, <span class="ruby-identifier">argtype</span>)
+                <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Wrong argument type for #{pin.path}: #{par.name} expected #{ptype}, received #{argtype}&quot;</span>)
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">par</span>.<span class="ruby-identifier">rest?</span>
+          <span class="ruby-keyword">next</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">par</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:kwarg</span>
+          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Call to #{pin.path} is missing keyword argument #{par.name}&quot;</span>)
+          <span class="ruby-keyword">break</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">base</span> = <span class="ruby-identifier">base</span>.<span class="ruby-identifier">base</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-arity_problems_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">arity_problems_for</span><span
+            class="method-args">(pin, arguments, location)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param pin [Pin::BaseMethod]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="arity_problems_for-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 399</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">arity_problems_for</span>(<span class="ruby-identifier">pin</span>, <span class="ruby-identifier">arguments</span>, <span class="ruby-identifier">location</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">explicit?</span>
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-comment"># Functions tagged param_tuple accepts two arguments (e.g., Hash#[]=)</span>
+    <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">docstring</span>.<span class="ruby-identifier">tag</span>(<span class="ruby-value">:param_tuple</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+    <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">links</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Chain</span><span class="ruby-operator">::</span><span class="ruby-constant">BlockVariable</span>)
+    <span class="ruby-keyword">return</span> [<span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Too many arguments to #{pin.path}&quot;</span>)]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">unchecked</span> = <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-identifier">add_params</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">unchecked</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">param</span><span class="ruby-operator">|</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:kwarg</span> }
+    <span class="ruby-keyword">return</span> [<span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Missing keyword arguments to #{pin.path}&quot;</span>)]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">unchecked</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">kwargs</span> = <span class="ruby-identifier">convert_hash</span>(<span class="ruby-identifier">unchecked</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">node</span>)
+    <span class="ruby-comment"># unless kwargs.empty?</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">param</span><span class="ruby-operator">|</span> [<span class="ruby-value">:kwarg</span>, <span class="ruby-value">:kwoptarg</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">param</span>.<span class="ruby-identifier">decl</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">kwrestarg?</span> }
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">kwargs</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">add_params</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">unchecked</span>.<span class="ruby-identifier">pop</span>
+          <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">keyword?</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">kwargs</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">param</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>)
+              <span class="ruby-identifier">kwargs</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>
+            <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:kwarg</span>
+              <span class="ruby-keyword">return</span> [<span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Missing keyword argument #{param.name} to #{pin.path}&quot;</span>)]
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">kwargs</span>.<span class="ruby-identifier">clear</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">any?</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:kwrestarg?</span>)
+          <span class="ruby-keyword">unless</span> <span class="ruby-identifier">kwargs</span>.<span class="ruby-identifier">empty?</span>
+            <span class="ruby-keyword">return</span> [<span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Unrecognized keyword argument #{kwargs.keys.first} to #{pin.path}&quot;</span>)]
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">req</span> = <span class="ruby-identifier">required_param_count</span>(<span class="ruby-identifier">pin</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">req</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">add_params</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">unchecked</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">any?</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:rest?</span>)
+    <span class="ruby-identifier">opt</span> = <span class="ruby-identifier">optional_param_count</span>(<span class="ruby-identifier">pin</span>)
+    <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">unchecked</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">req</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">opt</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">unchecked</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">req</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">opt</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">unchecked</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">links</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Chain</span><span class="ruby-operator">::</span><span class="ruby-constant">BlockVariable</span>)
+      <span class="ruby-keyword">return</span> []
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Too many arguments to #{pin.path}&quot;</span>)]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">unchecked</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">req</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">splat?</span>)
+    <span class="ruby-keyword">return</span> [<span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Not enough arguments to #{pin.path}&quot;</span>)]
+  <span class="ruby-keyword">end</span>
+  []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-call_problems" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call_problems</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call_problems-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call_problems</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">NodeMethods</span>.<span class="ruby-identifier">call_nodes_from</span>(<span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">source</span>.<span class="ruby-identifier">node</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">call</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">rng</span> = <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Range</span>.<span class="ruby-identifier">from_node</span>(<span class="ruby-identifier">call</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@marked_ranges</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">contain?</span>(<span class="ruby-identifier">rng</span>.<span class="ruby-identifier">start</span>) }
+    <span class="ruby-identifier">chain</span> = <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">chain</span>(<span class="ruby-identifier">call</span>, <span class="ruby-identifier">filename</span>)
+    <span class="ruby-identifier">block_pin</span> = <span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">locate_block_pin</span>(<span class="ruby-identifier">rng</span>.<span class="ruby-identifier">start</span>.<span class="ruby-identifier">line</span>, <span class="ruby-identifier">rng</span>.<span class="ruby-identifier">start</span>.<span class="ruby-identifier">column</span>)
+    <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">rng</span>)
+    <span class="ruby-identifier">locals</span> = <span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">locals_at</span>(<span class="ruby-identifier">location</span>)
+    <span class="ruby-identifier">type</span> = <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">infer</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">undefined?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">rules</span>.<span class="ruby-identifier">ignore_all_undefined?</span>
+      <span class="ruby-identifier">base</span> = <span class="ruby-identifier">chain</span>
+      <span class="ruby-identifier">missing</span> = <span class="ruby-identifier">chain</span>
+      <span class="ruby-identifier">found</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">closest</span> = <span class="ruby-constant">ComplexType</span><span class="ruby-operator">::</span><span class="ruby-constant">UNDEFINED</span>
+      <span class="ruby-keyword">until</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">links</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">undefined?</span>
+        <span class="ruby-identifier">found</span> = <span class="ruby-identifier">base</span>.<span class="ruby-identifier">define</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>).<span class="ruby-identifier">first</span>
+        <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>
+        <span class="ruby-identifier">missing</span> = <span class="ruby-identifier">base</span>
+        <span class="ruby-identifier">base</span> = <span class="ruby-identifier">base</span>.<span class="ruby-identifier">base</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">closest</span> = <span class="ruby-identifier">found</span>.<span class="ruby-identifier">typify</span>(<span class="ruby-identifier">api_map</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">found</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">closest</span>.<span class="ruby-identifier">defined?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">internal?</span>(<span class="ruby-identifier">found</span>)
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ignored_pins</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">found</span>)
+          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Unresolved call to #{missing.links.last.word}&quot;</span>)
+          <span class="ruby-ivar">@marked_ranges</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">rng</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">argument_problems_for</span>(<span class="ruby-identifier">chain</span>, <span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>, <span class="ruby-identifier">location</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-const_problems" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">const_problems</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="const_problems-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">const_problems</span>
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">validate_consts?</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">NodeMethods</span>.<span class="ruby-identifier">const_nodes_from</span>(<span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">source</span>.<span class="ruby-identifier">node</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">const</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">rng</span> = <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Range</span>.<span class="ruby-identifier">from_node</span>(<span class="ruby-identifier">const</span>)
+    <span class="ruby-identifier">chain</span> = <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">chain</span>(<span class="ruby-identifier">const</span>, <span class="ruby-identifier">filename</span>)
+    <span class="ruby-identifier">block_pin</span> = <span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">locate_block_pin</span>(<span class="ruby-identifier">rng</span>.<span class="ruby-identifier">start</span>.<span class="ruby-identifier">line</span>, <span class="ruby-identifier">rng</span>.<span class="ruby-identifier">start</span>.<span class="ruby-identifier">column</span>)
+    <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">rng</span>)
+    <span class="ruby-identifier">locals</span> = <span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">locals_at</span>(<span class="ruby-identifier">location</span>)
+    <span class="ruby-identifier">pins</span> = <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">define</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">pins</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Unresolved constant #{Solargraph::Parser::NodeMethods.unpack_name(const)}&quot;</span>)
+      <span class="ruby-ivar">@marked_ranges</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">range</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-declared_externally-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">declared_externally?</span><span
+            class="method-args">(pin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="declared_externally-3F-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 371</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">declared_externally?</span> <span class="ruby-identifier">pin</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">assignment</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">chain</span> = <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">chain</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">assignment</span>, <span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">rng</span> = <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Range</span>.<span class="ruby-identifier">from_node</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">assignment</span>)
+  <span class="ruby-identifier">block_pin</span> = <span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">locate_block_pin</span>(<span class="ruby-identifier">rng</span>.<span class="ruby-identifier">start</span>.<span class="ruby-identifier">line</span>, <span class="ruby-identifier">rng</span>.<span class="ruby-identifier">start</span>.<span class="ruby-identifier">column</span>)
+  <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-constant">Range</span>.<span class="ruby-identifier">from_node</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">assignment</span>))
+  <span class="ruby-identifier">locals</span> = <span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">locals_at</span>(<span class="ruby-identifier">location</span>)
+  <span class="ruby-identifier">type</span> = <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">infer</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">undefined?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">rules</span>.<span class="ruby-identifier">ignore_all_undefined?</span>
+    <span class="ruby-identifier">base</span> = <span class="ruby-identifier">chain</span>
+    <span class="ruby-identifier">missing</span> = <span class="ruby-identifier">chain</span>
+    <span class="ruby-identifier">found</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">closest</span> = <span class="ruby-constant">ComplexType</span><span class="ruby-operator">::</span><span class="ruby-constant">UNDEFINED</span>
+    <span class="ruby-keyword">until</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">links</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">undefined?</span>
+      <span class="ruby-identifier">found</span> = <span class="ruby-identifier">base</span>.<span class="ruby-identifier">define</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>).<span class="ruby-identifier">first</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>
+      <span class="ruby-identifier">missing</span> = <span class="ruby-identifier">base</span>
+      <span class="ruby-identifier">base</span> = <span class="ruby-identifier">base</span>.<span class="ruby-identifier">base</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">closest</span> = <span class="ruby-identifier">found</span>.<span class="ruby-identifier">typify</span>(<span class="ruby-identifier">api_map</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">found</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">closest</span>.<span class="ruby-identifier">defined?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">internal?</span>(<span class="ruby-identifier">found</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-external-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">external?</span><span
+            class="method-args">(pin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param pin [Pin::Base]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="external-3F-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 367</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">external?</span> <span class="ruby-identifier">pin</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">internal?</span> <span class="ruby-identifier">pin</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fake_args_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fake_args_for</span><span
+            class="method-args">(pin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fake_args_for-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 477</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fake_args_for</span>(<span class="ruby-identifier">pin</span>)
+  <span class="ruby-identifier">args</span> = []
+  <span class="ruby-identifier">with_opts</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">with_block</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pin</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> [<span class="ruby-value">:kwarg</span>, <span class="ruby-value">:kwoptarg</span>, <span class="ruby-value">:kwrestarg</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">decl</span>)
+      <span class="ruby-identifier">with_opts</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:block</span>
+      <span class="ruby-identifier">with_block</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:restarg</span>
+      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Chain</span>.<span class="ruby-identifier">new</span>([<span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Chain</span><span class="ruby-operator">::</span><span class="ruby-constant">Variable</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">name</span>)], <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">true</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Chain</span>.<span class="ruby-identifier">new</span>([<span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Chain</span><span class="ruby-operator">::</span><span class="ruby-constant">Variable</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">name</span>)])
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">chain_string</span>(<span class="ruby-string">&#39;{}&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">with_opts</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">chain_string</span>(<span class="ruby-string">&#39;&amp;&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">with_block</span>
+  <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-first_param_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">first_param_hash</span><span
+            class="method-args">(pins)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [Array&lt;Pin::Method&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="first_param_hash-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">first_param_hash</span>(<span class="ruby-identifier">pins</span>)
+  <span class="ruby-identifier">pins</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pin</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">param_hash</span>(<span class="ruby-identifier">pin</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">end</span>
+  {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ignored_pins" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ignored_pins</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ignored_pins-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ignored_pins</span>
+  <span class="ruby-ivar">@ignored_pins</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal?</span><span
+            class="method-args">(pin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param pin [Pin::Base]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="internal-3F-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 362</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal?</span> <span class="ruby-identifier">pin</span>
+  <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">api_map</span>.<span class="ruby-identifier">bundled?</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">filename</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-kwarg_problems_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">kwarg_problems_for</span><span
+            class="method-args">(argchain, api_map, block_pin, locals, location, pin, params, first)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="kwarg_problems_for-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 295</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">kwarg_problems_for</span> <span class="ruby-identifier">argchain</span>, <span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>, <span class="ruby-identifier">location</span>, <span class="ruby-identifier">pin</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">kwargs</span> = <span class="ruby-identifier">convert_hash</span>(<span class="ruby-identifier">argchain</span>.<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>[<span class="ruby-identifier">first</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">par</span>, <span class="ruby-identifier">cur</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">idx</span> = <span class="ruby-identifier">first</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cur</span>
+    <span class="ruby-identifier">argchain</span> = <span class="ruby-identifier">kwargs</span>[<span class="ruby-identifier">par</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">par</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:kwrestarg</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">par</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:optarg</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">idx</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">par</span>.<span class="ruby-identifier">asgn_code</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;{}&#39;</span>)
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">kwrestarg_problems_for</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>, <span class="ruby-identifier">location</span>, <span class="ruby-identifier">pin</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">kwargs</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">argchain</span>
+        <span class="ruby-identifier">ptype</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">par</span>.<span class="ruby-identifier">name</span>]
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">ptype</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-comment"># @todo Some level (strong, I guess) should require the param here</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">argtype</span> = <span class="ruby-identifier">argchain</span>.<span class="ruby-identifier">infer</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">argtype</span>.<span class="ruby-identifier">defined?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ptype</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">any_types_match?</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">ptype</span>, <span class="ruby-identifier">argtype</span>)
+            <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Wrong argument type for #{pin.path}: #{par.name} expected #{ptype}, received #{argtype}&quot;</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">par</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:kwarg</span>
+          <span class="ruby-comment"># @todo Problem: missing required keyword argument</span>
+          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Call to #{pin.path} is missing keyword argument #{par.name}&quot;</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-kwrestarg_problems_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">kwrestarg_problems_for</span><span
+            class="method-args">(api_map, block_pin, locals, location, pin, params, kwargs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="kwrestarg_problems_for-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 325</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">kwrestarg_problems_for</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>, <span class="ruby-identifier">location</span>, <span class="ruby-identifier">pin</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">kwargs</span>)
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">kwargs</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pname</span>, <span class="ruby-identifier">argchain</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">ptype</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">pname</span>.<span class="ruby-identifier">to_s</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ptype</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-comment"># Probably nothing to do here. All of these args should be optional.</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">argtype</span> = <span class="ruby-identifier">argchain</span>.<span class="ruby-identifier">infer</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">block_pin</span>, <span class="ruby-identifier">locals</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">argtype</span>.<span class="ruby-identifier">defined?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ptype</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">any_types_match?</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">ptype</span>, <span class="ruby-identifier">argtype</span>)
+        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Wrong argument type for #{pin.path}: #{pname} expected #{ptype}, received #{argtype}&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-macro_pin-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">macro_pin?</span><span
+            class="method-args">(pin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="macro_pin-3F-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">macro_pin?</span> <span class="ruby-identifier">pin</span>
+  <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">source</span>.<span class="ruby-identifier">comment_at?</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">range</span>.<span class="ruby-identifier">ending</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_param_type_problems_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_param_type_problems_for</span><span
+            class="method-args">(pin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param pin [Pin::BaseMethod] @return [Array&lt;Problem&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method_param_type_problems_for-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">method_param_type_problems_for</span> <span class="ruby-identifier">pin</span>
+  <span class="ruby-identifier">stack</span> = <span class="ruby-identifier">api_map</span>.<span class="ruby-identifier">get_method_stack</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">namespace</span>, <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">name</span>, <span class="ruby-value">scope:</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">scope</span>)
+  <span class="ruby-identifier">params</span> = <span class="ruby-identifier">first_param_hash</span>(<span class="ruby-identifier">stack</span>)
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">require_type_tags?</span>
+    <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">par</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">par</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:restarg</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">par</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:kwrestarg</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">par</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:blockarg</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">par</span>.<span class="ruby-identifier">name</span>]
+        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Missing @param tag for #{par.name} on #{pin.path}&quot;</span>, <span class="ruby-value">pin:</span> <span class="ruby-identifier">pin</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">type</span> = <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">qualify</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">full_context</span>.<span class="ruby-identifier">namespace</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">undefined?</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Unresolved type #{tag} for #{name} param on #{pin.path}&quot;</span>, <span class="ruby-value">pin:</span> <span class="ruby-identifier">pin</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_return_type_problems_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_return_type_problems_for</span><span
+            class="method-args">(pin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param pin [Pin::BaseMethod] @return [Array&lt;Problem&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method_return_type_problems_for-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">method_return_type_problems_for</span> <span class="ruby-identifier">pin</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">declared</span> = <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">typify</span>(<span class="ruby-identifier">api_map</span>).<span class="ruby-identifier">self_to</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">full_context</span>.<span class="ruby-identifier">namespace</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">declared</span>.<span class="ruby-identifier">undefined?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">return_type</span>.<span class="ruby-identifier">undefined?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">require_type_tags?</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Missing @return tag for #{pin.path}&quot;</span>, <span class="ruby-value">pin:</span> <span class="ruby-identifier">pin</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">return_type</span>.<span class="ruby-identifier">defined?</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Unresolved return type #{pin.return_type} for #{pin.path}&quot;</span>, <span class="ruby-value">pin:</span> <span class="ruby-identifier">pin</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">must_tag_or_infer?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">probe</span>(<span class="ruby-identifier">api_map</span>).<span class="ruby-identifier">undefined?</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Untyped method #{pin.path} could not be inferred&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">validate_tags?</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">node</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">declared</span>.<span class="ruby-identifier">void?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">macro_pin?</span>(<span class="ruby-identifier">pin</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">abstract?</span>(<span class="ruby-identifier">pin</span>)
+      <span class="ruby-identifier">inferred</span> = <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">probe</span>(<span class="ruby-identifier">api_map</span>).<span class="ruby-identifier">self_to</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">full_context</span>.<span class="ruby-identifier">namespace</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">inferred</span>.<span class="ruby-identifier">undefined?</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">ignore_all_undefined?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">external?</span>(<span class="ruby-identifier">pin</span>)
+          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;#{pin.path} return type could not be inferred&quot;</span>, <span class="ruby-value">pin:</span> <span class="ruby-identifier">pin</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">rules</span>.<span class="ruby-identifier">rank</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">types_match?</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">declared</span>, <span class="ruby-identifier">inferred</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">any_types_match?</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">declared</span>, <span class="ruby-identifier">inferred</span>))
+          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Declared return type #{declared} does not match inferred type #{inferred} for #{pin.path}&quot;</span>, <span class="ruby-value">pin:</span> <span class="ruby-identifier">pin</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_tag_problems" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_tag_problems</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Array&lt;Problem&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method_tag_problems-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">method_tag_problems</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-comment"># @param pin [Pin::BaseMethod]</span>
+  <span class="ruby-identifier">source_map</span>.<span class="ruby-identifier">pins_by_class</span>(<span class="ruby-constant">Pin</span><span class="ruby-operator">::</span><span class="ruby-constant">BaseMethod</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pin</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">method_return_type_problems_for</span>(<span class="ruby-identifier">pin</span>)
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">method_param_type_problems_for</span>(<span class="ruby-identifier">pin</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-optional_param_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">optional_param_count</span><span
+            class="method-args">(pin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param pin [Pin::BaseMethod]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="optional_param_count-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 463</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">optional_param_count</span>(<span class="ruby-identifier">pin</span>)
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:optarg</span>
+    <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-param_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">param_hash</span><span
+            class="method-args">(pin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="param_hash-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 341</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">param_hash</span>(<span class="ruby-identifier">pin</span>)
+  <span class="ruby-identifier">tags</span> = <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">docstring</span>.<span class="ruby-identifier">tags</span>(<span class="ruby-value">:param</span>)
+  <span class="ruby-keyword">return</span> {} <span class="ruby-keyword">if</span> <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">result</span> = {}
+  <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">types</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">types</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-identifier">tag</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-constant">Solargraph</span><span class="ruby-operator">::</span><span class="ruby-constant">ComplexType</span>.<span class="ruby-identifier">try_parse</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">tag</span>.<span class="ruby-identifier">types</span>).<span class="ruby-identifier">qualify</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">full_context</span>.<span class="ruby-identifier">namespace</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-required_param_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">required_param_count</span><span
+            class="method-args">(pin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param pin [Pin::BaseMethod]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="required_param_count-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 453</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">required_param_count</span>(<span class="ruby-identifier">pin</span>)
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">decl</span> <span class="ruby-operator">==</span> <span class="ruby-value">:arg</span>
+    <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-variable_type_tag_problems" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">variable_type_tag_problems</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Array&lt;Problem&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="variable_type_tag_problems-source">
+            <pre><span class="ruby-comment"># File lib/solargraph/type_checker.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">variable_type_tag_problems</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">all_variables</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pin</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">return_type</span>.<span class="ruby-identifier">defined?</span>
+      <span class="ruby-comment"># @todo Somwhere in here we still need to determine if the variable is defined by an external call</span>
+      <span class="ruby-identifier">declared</span> = <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">typify</span>(<span class="ruby-identifier">api_map</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">declared</span>.<span class="ruby-identifier">defined?</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">validate_tags?</span>
+          <span class="ruby-identifier">inferred</span> = <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">probe</span>(<span class="ruby-identifier">api_map</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">inferred</span>.<span class="ruby-identifier">undefined?</span>
+            <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">ignore_all_undefined?</span>
+            <span class="ruby-comment"># next unless internal?(pin) # @todo This might be redundant for variables</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">declared_externally?</span>(<span class="ruby-identifier">pin</span>)
+              <span class="ruby-identifier">ignored_pins</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">pin</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Variable type could not be inferred for #{pin.name}&quot;</span>, <span class="ruby-value">pin:</span> <span class="ruby-identifier">pin</span>)
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">rules</span>.<span class="ruby-identifier">rank</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">types_match?</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">declared</span>, <span class="ruby-identifier">inferred</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">any_types_match?</span>(<span class="ruby-identifier">api_map</span>, <span class="ruby-identifier">declared</span>, <span class="ruby-identifier">inferred</span>))
+              <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Declared type #{declared} does not match inferred type #{inferred} for variable #{pin.name}&quot;</span>, <span class="ruby-value">pin:</span> <span class="ruby-identifier">pin</span>)
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">declared_externally?</span>(<span class="ruby-identifier">pin</span>)
+          <span class="ruby-identifier">ignored_pins</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">pin</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">pin</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Pin</span><span class="ruby-operator">::</span><span class="ruby-constant">Parameter</span>)
+        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Problem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pin</span>.<span class="ruby-identifier">location</span>, <span class="ruby-node">&quot;Unresolved type #{pin.return_type} for variable #{pin.name}&quot;</span>, <span class="ruby-value">pin:</span> <span class="ruby-identifier">pin</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># @todo Check if the variable is defined by an external call</span>
+      <span class="ruby-identifier">inferred</span> = <span class="ruby-identifier">pin</span>.<span class="ruby-identifier">probe</span>(<span class="ruby-identifier">api_map</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">inferred</span>.<span class="ruby-identifier">undefined?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">declared_externally?</span>(<span class="ruby-identifier">pin</span>)
+        <span class="ruby-identifier">ignored_pins</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">pin</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

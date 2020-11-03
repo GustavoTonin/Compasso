@@ -1,0 +1,7 @@
+current directory: C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/ruby-debug-ide-0.7.2/ext
+C:/Ruby27-x64/bin/ruby.exe mkrf_conf.rb
+Installing base gem
+Building native extensions. This could take a while...
+
+current directory: C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/ruby-debug-ide-0.7.2/ext
+C:/Ruby27-x64/bin/ruby.exe -IC:/Ruby27-x64/lib/ruby/2.7.0/rubygems -rrubygems C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/rake-13.0.1/exe/rake RUBYARCHDIR\=C:/Ruby27-x64/lib/ruby/gems/2.7.0/extensions/x64-mingw32/2.7.0/ruby-debug-ide-0.7.2 RUBYLIBDIR\=C:/Ruby27-x64/lib/ruby/gems/2.7.0/extensions/x64-mingw32/2.7.0/ruby-debug-ide-0.7.2

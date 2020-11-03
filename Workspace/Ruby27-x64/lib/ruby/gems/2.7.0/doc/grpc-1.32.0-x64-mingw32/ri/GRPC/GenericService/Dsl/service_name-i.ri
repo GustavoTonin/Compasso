@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"service_name:ETI"+GRPC::GenericService::Dsl#service_name;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"3This allows configuration of the service name.;T:
+@fileI")src/ruby/lib/grpc/generic/service.rb;T:0@omit_headings_from_table_of_contents_below0F@I"GRPC::GenericService::Dsl;TcRDoc::NormalModule0

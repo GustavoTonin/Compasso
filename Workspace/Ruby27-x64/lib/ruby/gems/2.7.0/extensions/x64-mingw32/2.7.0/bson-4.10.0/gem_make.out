@@ -1,0 +1,436 @@
+current directory: C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/bson-4.10.0/ext/bson
+C:/Ruby27-x64/bin/ruby.exe -I C:/Ruby27-x64/lib/ruby/2.7.0 -r ./siteconf20201013-12420-18h1qqw.rb extconf.rb
+creating Makefile
+
+current directory: C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/bson-4.10.0/ext/bson
+make "DESTDIR=" clean
+
+current directory: C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/bson-4.10.0/ext/bson
+make "DESTDIR="
+generating bson_native-x64-mingw32.def
+compiling bytebuf.c
+compiling endian.c
+compiling init.c
+compiling libbson-utf8.c
+compiling read.c
+In file included from read.c:17:
+read.c: In function 'pvt_validate_length':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c:56:82: warning: unknown conversion type character 'z' in format [-Wformat=]
+   56 |       rb_raise(rb_eRangeError, "Buffer should have contained null terminator at %zu but contained %d", b->read_position + (size_t)length, (int)*(READ_PTR(b) + length));
+      |                                                                                  ^
+read.c:56:100: warning: format '%d' expects argument of type 'int', but argument 3 has type 'long long unsigned int' [-Wformat=]
+   56 |       rb_raise(rb_eRangeError, "Buffer should have contained null terminator at %zu but contained %d", b->read_position + (size_t)length, (int)*(READ_PTR(b) + length));
+      |                                                                                                   ~^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                                                    |                    |
+      |                                                                                                    int                  long long unsigned int
+      |                                                                                                   %I64d
+read.c:56:32: warning: too many arguments for format [-Wformat-extra-args]
+   56 |       rb_raise(rb_eRangeError, "Buffer should have contained null terminator at %zu but contained %d", b->read_position + (size_t)length, (int)*(READ_PTR(b) + length));
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c:61:70: warning: unknown conversion type character 'z' in format [-Wformat=]
+   61 |     rb_raise(rb_eRangeError, "Buffer contained invalid length %d at %zu", length, b->read_position);
+      |                                                                      ^
+read.c:61:30: warning: too many arguments for format [-Wformat-extra-args]
+   61 |     rb_raise(rb_eRangeError, "Buffer contained invalid length %d at %zu", length, b->read_position);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from read.c:17:
+read.c: In function 'rb_bson_byte_buffer_get_byte':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'pvt_get_type_byte':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'rb_bson_byte_buffer_get_bytes':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'pvt_get_boolean':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'pvt_get_string':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'rb_bson_byte_buffer_get_cstring':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'pvt_skip_cstring':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'pvt_get_int32':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'pvt_get_uint32':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'pvt_get_int64':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'pvt_get_double':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'rb_bson_byte_buffer_get_decimal128_bytes':
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:50: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                  ^
+bson-native.h:68:30: warning: unknown conversion type character 'z' in format [-Wformat=]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:70: note: format string is defined here
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                                                                      ^
+bson-native.h:68:30: warning: too many arguments for format [-Wformat-extra-args]
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson-native.h:68:30: note: in definition of macro 'ENSURE_BSON_READ'
+   68 |     rb_raise(rb_eRangeError, "Attempted to read %zu bytes, but only %zu bytes remain", (size_t)length, READ_SIZE(buffer_ptr)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+read.c: In function 'rb_bson_byte_buffer_get_hash':
+read.c:381:90: warning: format '%ld' expects argument of type 'long int', but argument 3 has type 'long long int' [-Wformat=]
+  381 |     pvt_raise_decode_error(rb_sprintf("Expected to read %d bytes for the hash but read %ld bytes", length, READ_PTR(b) - start_ptr));
+      |                                                                                        ~~^
+      |                                                                                          |
+      |                                                                                          long int
+      |                                                                                        %I64d
+read.c: In function 'rb_bson_byte_buffer_get_array':
+read.c:407:90: warning: format '%ld' expects argument of type 'long int', but argument 3 has type 'long long int' [-Wformat=]
+  407 |     pvt_raise_decode_error(rb_sprintf("Expected to read %d bytes for the hash but read %ld bytes", length, READ_PTR(b) - start_ptr));
+      |                                                                                        ~~^
+      |                                                                                          |
+      |                                                                                          long int
+      |                                                                                        %I64d
+compiling util.c
+compiling write.c
+write.c: In function 'rb_bson_byte_buffer_put_uint32':
+write.c:407:40: warning: unknown conversion type character 'l' in format [-Wformat=]
+  407 |     rb_raise(rb_eRangeError, "Number %lld is out of range [0, 2^32)", (long long)temp);
+      |                                        ^
+write.c:407:30: warning: too many arguments for format [-Wformat-extra-args]
+  407 |     rb_raise(rb_eRangeError, "Number %lld is out of range [0, 2^32)", (long long)temp);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+linking shared-object bson_native.so
+
+current directory: C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/bson-4.10.0/ext/bson
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bson_native.so ./.gem.20201013-12420-1ssn08y
