@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"translation_service_stub:ETI"VGoogle::Cloud::Translate::V3::TranslationService::Client#translation_service_stub;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@private;T:
+@fileI"@lib/google/cloud/translate/v3/translation_service/client.rb;T:0@omit_headings_from_table_of_contents_below0F@I"=Google::Cloud::Translate::V3::TranslationService::Client;TcRDoc::NormalClass0

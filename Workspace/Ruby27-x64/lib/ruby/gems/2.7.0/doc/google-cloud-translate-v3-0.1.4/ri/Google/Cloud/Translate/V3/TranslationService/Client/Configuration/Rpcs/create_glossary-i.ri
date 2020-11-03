@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"create_glossary:ETI"bGoogle::Cloud::Translate::V3::TranslationService::Client::Configuration::Rpcs#create_glossary;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"6RPC-specific configuration for `create_glossary` ;TI"&@return [::Gapic::Config::Method];T:
+@fileI"@lib/google/cloud/translate/v3/translation_service/client.rb;T:0@omit_headings_from_table_of_contents_below0F@I"RGoogle::Cloud::Translate::V3::TranslationService::Client::Configuration::Rpcs;TcRDoc::NormalClass0

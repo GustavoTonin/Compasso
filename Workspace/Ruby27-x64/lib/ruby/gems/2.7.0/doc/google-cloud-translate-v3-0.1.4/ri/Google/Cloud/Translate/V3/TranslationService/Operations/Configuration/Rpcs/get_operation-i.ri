@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"get_operation:ETI"dGoogle::Cloud::Translate::V3::TranslationService::Operations::Configuration::Rpcs#get_operation;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"4RPC-specific configuration for `get_operation` ;TI"&@return [::Gapic::Config::Method];T:
+@fileI"Dlib/google/cloud/translate/v3/translation_service/operations.rb;T:0@omit_headings_from_table_of_contents_below0F@I"VGoogle::Cloud::Translate::V3::TranslationService::Operations::Configuration::Rpcs;TcRDoc::NormalClass0

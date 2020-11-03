@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"	page:ETI" Gapic::PagedEnumerable#page;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@attribute [r] page;To:RDoc::Markup::Verbatim;	[I",@return [Page] The current page object.;T:@format0:
+@fileI""lib/gapic/paged_enumerable.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Gapic::PagedEnumerable;TcRDoc::NormalClass0
