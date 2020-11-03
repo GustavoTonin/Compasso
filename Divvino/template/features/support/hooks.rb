@@ -53,7 +53,7 @@ def take_screenshot(file_name = "", status = :passed)
   file_path = RUN_DIR + file_name_prefix + file_name_normalized + file_extension
 
   Capybara.page.save_screenshot(file_path)
-  attach(file_path, "image/png")
+  attach_file(file_path, "image/png")
 
   $screenshot_counter += 1
 end

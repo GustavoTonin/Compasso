@@ -9,8 +9,8 @@ Então("deverá aparecer a mensagem de sucesso {string}") do |msg|
   expect(message).to eql msg
 end
 
-Então("deverá aparecer a mensagem de erro {string}") do |string|
-  pending #falta pegar erro OnInput
+Então("deverá aparecer a mensagem de erro {string}") do |msg|
+
   # message: = @home.login_modal.error_message.text
-  # expect(message).to eql msg
+  expect(@login_modal.text).to have_content msg # se não funcionar trocar @login_modal.text by page.text
 end
