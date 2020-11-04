@@ -10,7 +10,7 @@ module Ecommerce
         end
 
         def get_points
-          points.text.delete(" Pontos")
+          points.text.delete(".").delete(" Pontos")
         end
       end
     end

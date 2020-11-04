@@ -6,18 +6,33 @@ Quando("selecionar o primeiro produto") do
   @products = $ec_pages.products
   @product_box = @products.products_boxes.first
 
-  @pb_link = @product_box.get_link
-
   @product_box.click_prod
 end
 
-Quando("adicionar ao carrinho") do
+Quando("adicionar no carrinho") do
   @product = @products.product
 
-  @product.select_partner
+  if @product.get_has_volts
+    @product.select_volt
+  end
 
-  @p_points = @product.get_points
-  @product.add_cart
+  @p_link = @product.current_url
+  @product.select_last_partner
+
+  if @product.get_has_stores
+    @modal_stores = @product.modal_stores
+    @modal_stores.select_volt
+    @p_points = @modal_stores.get_points
+    @modal_stores.add_cart
+  else
+    @p_points = @product.get_points
+    @product.add_cart
+  end
+end
+
+Quando("selecionar primeiro produto da vitrine") do
+  @products = $ec_pages.products
+  @home.select_showcase
 end
 
 Então("deverá aparecer o produto e o preço no carrinho") do
@@ -26,7 +41,8 @@ Então("deverá aparecer o produto e o preço no carrinho") do
 
   link = @cart_list.get_link
   points = @cart_list.get_points
+  sleep 5
 
   expect(@p_points).to eql points
-  expect(@pb_link).to eql link
+  expect(@p_link).to eql link
 end
